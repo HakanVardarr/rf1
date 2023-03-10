@@ -1,10 +1,22 @@
 [package]
 name = "rf1"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
+authors = ["Hakan Vardar"]
+description = "F1 statistics"
+license = "MIT"
+repository = "https://github.com/HakanVardarr/rf1"
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 reqwest = { version = "0.11.14", features = ["blocking"] }
 serde_json = "1.0.94"
+
+
+[profile.release]
+strip = true
+opt-level = "s"
+lto = true
+codegen-units = 1
